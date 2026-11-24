@@ -1,0 +1,2476 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#1e3a8a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Alphabet &amp; Phiên Âm Cơ Bản Cho Người Mới (A–Z)</title>
+
+  <!-- Self-contained CSS (zero external network dependency for offline APK / WebView) -->
+  <style>
+    /* =====================================================================
+       BASE RESET & MOBILE-FIRST APK / WEBVIEW STYLING
+       ===================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      background-color: #f1f5f9;
+      color: #0f172a;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    code, .ipa-text {
+      font-family: "JetBrains Mono", "Fira Code", Consolas, "Courier New", monospace;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* =====================================================================
+       LAYOUT & UTILITY CLASSES
+       ===================================================================== */
+    .container-app {
+      width: 100%;
+      max-width: 1240px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 14px;
+      padding-right: 14px;
+    }
+
+    @media (min-width: 640px) {
+      .container-app {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+    }
+
+    /* Sticky Top Header */
+    .app-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background-color: #0f172a;
+      color: #ffffff;
+      border-bottom: 1px solid #1e293b;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.18);
+    }
+
+    .header-inner {
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .brand-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+    }
+
+    .brand-title {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: #ffffff;
+    }
+
+    @media (min-width: 640px) {
+      .brand-title {
+        font-size: 19px;
+      }
+    }
+
+    .brand-sub {
+      margin: 2px 0 0;
+      font-size: 12px;
+      color: #cbd5e1;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .accent-group {
+      display: inline-flex;
+      background-color: #1e293b;
+      padding: 3px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+    }
+
+    .accent-btn {
+      border: none;
+      background: transparent;
+      color: #cbd5e1;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 7px 12px;
+      border-radius: 9px;
+      cursor: pointer;
+      min-height: 34px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .accent-btn.active {
+      background-color: #2563eb;
+      color: #ffffff;
+    }
+
+    .progress-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      padding: 7px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #34d399;
+      min-height: 34px;
+    }
+
+    .progress-row {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 10px;
+      background-color: #1e293b;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #38bdf8 0%, #22c55e 100%);
+      border-radius: 999px;
+      transition: width 0.35s ease;
+    }
+
+    .progress-label {
+      font-size: 12px;
+      font-weight: 800;
+      color: #34d399;
+      white-space: nowrap;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding-top: 18px;
+      padding-bottom: 36px;
+    }
+
+    .section-gap {
+      margin-bottom: 20px;
+    }
+
+    /* Beginner Golden Tips Box */
+    .tips-card {
+      background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+      border: 1px solid #bfdbfe;
+      border-radius: 22px;
+      padding: 16px;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+    }
+
+    @media (min-width: 640px) {
+      .tips-card {
+        padding: 22px;
+      }
+    }
+
+    .tips-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .tips-title {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 800;
+      color: #1e3a8a;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .tips-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .tip-item {
+      background-color: #ffffff;
+      border: 1px solid #dbeafe;
+      border-radius: 16px;
+      padding: 13px;
+    }
+
+    .tip-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      color: #1d4ed8;
+      background-color: #dbeafe;
+      padding: 3px 9px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .tip-text {
+      margin: 0;
+      font-size: 13px;
+      color: #334155;
+      line-height: 1.5;
+    }
+
+    /* Filter & Search Bar */
+    .controls-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 22px;
+      padding: 14px;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+    }
+
+    @media (min-width: 640px) {
+      .controls-card {
+        padding: 18px;
+      }
+    }
+
+    .search-wrap {
+      position: relative;
+      margin-bottom: 12px;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 76px 12px 42px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #0f172a;
+      background-color: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 14px;
+      outline: none;
+      min-height: 46px;
+    }
+
+    .search-input:focus {
+      background-color: #ffffff;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    .clear-btn {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background-color: #e2e8f0;
+      color: #334155;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 9px;
+      cursor: pointer;
+    }
+
+    .filter-scroll {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .filter-chip {
+      border: 1px solid #cbd5e1;
+      background-color: #f8fafc;
+      color: #334155;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 9px 14px;
+      border-radius: 13px;
+      cursor: pointer;
+      white-space: nowrap;
+      min-height: 40px;
+      transition: all 0.15s ease;
+    }
+
+    .filter-chip.active {
+      background-color: #2563eb;
+      border-color: #2563eb;
+      color: #ffffff;
+      box-shadow: 0 3px 10px rgba(37, 99, 235, 0.25);
+    }
+
+    .jump-strip-wrap {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .jump-label {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #64748b;
+      margin-bottom: 6px;
+    }
+
+    .jump-strip {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .jump-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      border: 1px solid #cbd5e1;
+      background-color: #ffffff;
+      color: #0f172a;
+      font-weight: 800;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .jump-btn.learned {
+      background-color: #ecfdf5;
+      border-color: #34d399;
+      color: #065f46;
+    }
+
+    .jump-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #10b981;
+      margin-top: 1px;
+    }
+
+    /* 26-Letter Grid */
+    .letters-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    @media (min-width: 640px) {
+      .letters-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .letters-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+    }
+
+    .letter-card {
+      background-color: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 22px;
+      padding: 16px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .letter-card:hover {
+      border-color: #93c5fd;
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.1);
+    }
+
+    .letter-card.learned {
+      border-color: #34d399;
+      background-color: #fafffd;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .letter-identity {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .big-letter-box {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      padding-top: 8px;
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 28px;
+      line-height: 1;
+      flex-shrink: 0;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.14);
+    }
+
+    .big-letter-box.vowel {
+      background: linear-gradient(135deg, #ea580c 0%, #f59e0b 100%);
+    }
+
+    .big-letter-box.consonant {
+      background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
+    }
+
+    .big-letter-box .lower-char {
+      font-size: 18px;
+      font-weight: 800;
+      opacity: 0.9;
+      margin-left: 2px;
+    }
+
+    .ipa-line {
+      font-size: 13px;
+      color: #334155;
+      margin-top: 3px;
+    }
+
+    .ipa-badge {
+      font-weight: 800;
+      color: #1d4ed8;
+      background-color: #eff6ff;
+      padding: 1px 6px;
+      border-radius: 6px;
+    }
+
+    .learned-btn {
+      border: 1px solid #cbd5e1;
+      background-color: #f8fafc;
+      color: #334155;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 8px 11px;
+      border-radius: 12px;
+      cursor: pointer;
+      min-height: 36px;
+      flex-shrink: 0;
+    }
+
+    .learned-btn.is-learned {
+      background-color: #059669;
+      border-color: #059669;
+      color: #ffffff;
+    }
+
+    .vn-approx-box {
+      margin-top: 12px;
+      background-color: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 14px;
+      padding: 10px 12px;
+    }
+
+    .vn-approx-label {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #b45309;
+      letter-spacing: 0.03em;
+    }
+
+    .vn-approx-value {
+      margin-top: 2px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #78350f;
+    }
+
+    .vn-approx-note {
+      margin-top: 2px;
+      font-size: 11.5px;
+      color: #92400e;
+    }
+
+    .svg-diagram-box {
+      margin-top: 12px;
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .svg-diagram-box svg {
+      width: 104px;
+      height: 70px;
+      flex-shrink: 0;
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+    }
+
+    .diagram-caption-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.3;
+    }
+
+    .diagram-caption-sub {
+      font-size: 11.5px;
+      color: #475569;
+      margin-top: 2px;
+      line-height: 1.35;
+    }
+
+    .examples-list {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .example-row {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .example-word {
+      font-size: 14px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .example-ipa {
+      font-size: 12px;
+      font-weight: 700;
+      color: #2563eb;
+      margin-left: 4px;
+    }
+
+    .example-meta {
+      font-size: 12px;
+      color: #475569;
+      margin-top: 1px;
+    }
+
+    .mini-speak-btn {
+      border: 1px solid #bfdbfe;
+      background-color: #eff6ff;
+      color: #1d4ed8;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      min-height: 34px;
+      flex-shrink: 0;
+    }
+
+    .card-footer-actions {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .audio-btns {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .btn-slow {
+      border: 1px solid #fcd34d;
+      background-color: #fef3c7;
+      color: #92400e;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 8px 11px;
+      border-radius: 11px;
+      cursor: pointer;
+      min-height: 38px;
+    }
+
+    .btn-normal {
+      border: none;
+      background-color: #2563eb;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 8px 12px;
+      border-radius: 11px;
+      cursor: pointer;
+      min-height: 38px;
+    }
+
+    .btn-detail {
+      border: 1px solid #cbd5e1;
+      background-color: #ffffff;
+      color: #0f172a;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 8px 12px;
+      border-radius: 11px;
+      cursor: pointer;
+      min-height: 38px;
+    }
+
+    .speaking-active {
+      outline: 3px solid #0ea5e9 !important;
+      background-color: #e0f2fe !important;
+    }
+
+    /* Reference Table Section */
+    .ref-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 22px;
+      padding: 16px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+    }
+
+    @media (min-width: 640px) {
+      .ref-card {
+        padding: 22px;
+      }
+    }
+
+    .ref-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    @media (min-width: 768px) {
+      .ref-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .ref-group {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .ref-group-title {
+      margin: 0 0 4px;
+      font-size: 15px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .ref-group-desc {
+      margin: 0 0 10px;
+      font-size: 12.5px;
+      color: #475569;
+    }
+
+    .ref-item {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 11px;
+      padding: 8px 10px;
+      margin-bottom: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .ref-item:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Modal Backdrop & Dialog */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      background-color: rgba(15, 23, 42, 0.72);
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+    }
+
+    @media (min-width: 640px) {
+      .modal-backdrop {
+        align-items: center;
+        padding: 18px;
+      }
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-panel {
+      background-color: #ffffff;
+      width: 100%;
+      max-width: 740px;
+      max-height: 92vh;
+      border-radius: 24px 24px 0 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 24px 48px rgba(15, 23, 42, 0.35);
+    }
+
+    @media (min-width: 640px) {
+      .modal-panel {
+        border-radius: 24px;
+      }
+    }
+
+    .modal-head {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: #ffffff;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .modal-close-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background-color: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 800;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .modal-body {
+      padding: 18px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .modal-foot {
+      padding: 12px 18px;
+      background-color: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .compare-box {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    @media (min-width: 640px) {
+      .compare-box {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .compare-vn {
+      background-color: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 14px;
+      padding: 12px;
+    }
+
+    .compare-en {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 14px;
+      padding: 12px;
+    }
+
+    /* Toast Notification Banner */
+    .toast-wrap {
+      position: fixed;
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      z-index: 80;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    @media (min-width: 640px) {
+      .toast-wrap {
+        left: auto;
+        width: 380px;
+      }
+    }
+
+    .toast-msg {
+      background-color: #0f172a;
+      color: #ffffff;
+      border-left: 4px solid #38bdf8;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.25);
+      pointer-events: auto;
+    }
+
+    .app-footer {
+      background-color: #0f172a;
+      color: #cbd5e1;
+      padding: 20px 0;
+      font-size: 12.5px;
+      border-top: 1px solid #1e293b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toast Banner Container -->
+  <div id="toast-wrap" class="toast-wrap" aria-live="polite"></div>
+
+  <!-- 1. Top Header & Progress Bar -->
+  <header class="app-header">
+    <div class="container-app header-inner">
+      <div class="header-top">
+        <div class="brand-box">
+          <div class="brand-badge">A–Z</div>
+          <div>
+            <h1 class="brand-title">Bảng Chữ Cái Tiếng Anh &amp; Phiên Âm Cơ Bản</h1>
+            <p class="brand-sub">Dành cho người mới bắt đầu • Gợi ý gần tiếng Việt • Sẵn sàng đóng gói APK</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <div class="accent-group" role="group" aria-label="Chọn giọng đọc">
+            <button id="btn-accent-us" type="button" class="accent-btn active" onclick="changeAccent('en-US')">Giọng Mỹ (US)</button>
+            <button id="btn-accent-uk" type="button" class="accent-btn" onclick="changeAccent('en-GB')">Giọng Anh (UK)</button>
+          </div>
+          <div class="progress-pill">
+            <span>Đã thuộc:</span>
+            <span id="header-learned-count">0/26</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress-row">
+        <div class="progress-track">
+          <div id="progress-bar-fill" class="progress-fill"></div>
+        </div>
+        <span id="progress-percent-text" class="progress-label">0% hoàn thành</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container-app">
+
+      <!-- 2. Beginner Golden Tips Block -->
+      <section class="tips-card section-gap" aria-label="Mẹo vàng cho người mới bắt đầu">
+        <div class="tips-header">
+          <h2 class="tips-title">🌟 Mẹo Vàng Cho Người Mới Bắt Đầu Học Phát Âm</h2>
+          <button type="button" class="btn-detail" onclick="resetAllProgress()">Đặt lại tiến độ</button>
+        </div>
+        <div class="tips-grid">
+          <div class="tip-item">
+            <span class="tip-badge">Mẹo 1 • Âm gần tiếng Việt</span>
+            <p class="tip-text">
+              Cách đọc gợi ý tiếng Việt (như <em>"ây"</em> cho A, <em>"bi"</em> cho B) chỉ dùng làm <strong>điểm tựa ban đầu</strong> để bạn nhớ nhanh. Sau đó hãy nghe nút <strong>🔊 Chuẩn (1.0x)</strong> và chỉnh khẩu hình theo tiếng Anh.
+            </p>
+          </div>
+          <div class="tip-item">
+            <span class="tip-badge">Mẹo 2 • Thử bật hơi (P, T, K, C)</span>
+            <p class="tip-text">
+              Đặt lòng bàn tay cách miệng khoảng <strong>5–7 cm</strong> khi đọc đầu từ có <strong>P, T, K, C</strong>: nếu thấy luồng gió phả ra tay nghĩa là bạn đang bật hơi đúng chuẩn tiếng Anh.
+            </p>
+          </div>
+          <div class="tip-item">
+            <span class="tip-badge">Mẹo 3 • Ngắn &amp; Dài rõ ràng</span>
+            <p class="tip-text">
+              Nguyên âm ngắn (như trong <em>sit, cup, book</em>) đọc <strong>gọn, thả lỏng</strong>; nguyên âm dài (như trong <em>see, car, moon</em>) đọc <strong>kéo dài hơn</strong> và giữ khẩu hình ổn định.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Search & Beginner Sound Group Filters -->
+      <section class="controls-card section-gap" aria-label="Tìm kiếm và lọc nhóm chữ cái">
+        <div class="search-wrap">
+          <span class="search-icon">🔍</span>
+          <input
+            id="search-input"
+            type="text"
+            class="search-input"
+            placeholder="Tìm chữ cái (A-Z), cách đọc Việt (ây, bi, kiu...), hoặc từ ví dụ (apple, cat, sun...)"
+            oninput="renderLettersGrid()"
+          />
+          <button id="btn-clear-search" type="button" class="clear-btn" style="display:none;" onclick="clearSearchInput()">Xoá</button>
+        </div>
+
+        <div id="filter-chips" class="filter-scroll no-scrollbar">
+          <button type="button" class="filter-chip active" data-filter="all" onclick="selectFilter('all')">Tất cả A–Z (26)</button>
+          <button type="button" class="filter-chip" data-filter="group-ei" onclick="selectFilter('group-ei')">Âm đầu /eɪ/ (A, H, J, K)</button>
+          <button type="button" class="filter-chip" data-filter="group-ee" onclick="selectFilter('group-ee')">Âm đầu /iː/ (B, C, D, E, G, P, T, V, Z)</button>
+          <button type="button" class="filter-chip" data-filter="aspirated-hard" onclick="selectFilter('aspirated-hard')">Âm bật hơi &amp; âm khó (P, T, K, C, Q, R, W, X, Y)</button>
+          <button type="button" class="filter-chip" data-filter="learned" onclick="selectFilter('learned')">Đã thuộc ✓</button>
+        </div>
+
+        <div class="jump-strip-wrap">
+          <div class="jump-label">Bấm nhanh chữ cái để xem chi tiết:</div>
+          <div id="quick-jump-strip" class="jump-strip no-scrollbar"></div>
+        </div>
+      </section>
+
+      <!-- 3. 26-Letter Grid (A-Z) -->
+      <section class="section-gap" aria-label="Danh sách 26 chữ cái tiếng Anh">
+        <div id="letters-grid" class="letters-grid"></div>
+        <div id="no-results-box" class="tips-card" style="display:none; text-align:center;">
+          <p class="tip-text" style="font-weight:700;">Không tìm thấy chữ cái hoặc từ ví dụ nào khớp với từ khoá của bạn.</p>
+          <button type="button" class="btn-normal" style="margin-top:10px;" onclick="resetSearchAndFilter()">Xem lại toàn bộ 26 chữ cái</button>
+        </div>
+      </section>
+
+      <!-- 5. Quick Reference Table for Basic Vowels & Consonants -->
+      <section class="ref-card section-gap" aria-label="Bảng tra cứu nhanh nguyên âm và phụ âm cơ bản">
+        <h2 class="tips-title">📘 Bảng Tra Cứu Nhanh Nguyên Âm &amp; Phụ Âm Cơ Bản</h2>
+        <p class="ref-group-desc" style="margin-top:4px;">
+          Dành cho người mới làm quen ký hiệu phiên âm IPA phổ biến nhất. Bấm <strong>🔊 Nghe</strong> để nghe từ mẫu.
+        </p>
+        <div id="quick-reference-grid" class="ref-grid"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- 4. Detailed Letter Modal -->
+  <div id="detail-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title" onclick="handleModalBackdrop(event)">
+    <div class="modal-panel">
+      <div class="modal-head">
+        <div>
+          <h3 id="modal-title" style="margin:0; font-size:20px; font-weight:900;">Chữ A / a</h3>
+          <div id="modal-subtitle" class="ipa-text" style="font-size:13px; color:#93c5fd; margin-top:2px;"></div>
+        </div>
+        <button type="button" class="modal-close-btn" aria-label="Đóng" onclick="closeDetailModal()">✕</button>
+      </div>
+
+      <div id="modal-body" class="modal-body"></div>
+
+      <div class="modal-foot">
+        <button id="modal-prev-btn" type="button" class="btn-detail" onclick="stepModalLetter(-1)">← Trước</button>
+        <button id="modal-learned-btn" type="button" class="btn-normal" onclick="toggleCurrentModalLearned()">Đánh dấu đã thuộc</button>
+        <button id="modal-next-btn" type="button" class="btn-detail" onclick="stepModalLetter(1)">Sau →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container-app">
+      <strong>Ứng dụng học phát âm A–Z offline-friendly</strong> — Tương thích WebView / đóng gói APK. Khi không có giọng đọc TTS trên thiết bị, hệ thống tự chuyển sang âm báo nhịp nhàng để không báo lỗi.
+    </div>
+  </footer>
+
+  <script>
+    /* =========================================================================
+       1. DATA: 26 ENGLISH ALPHABET LETTERS FOR BEGINNERS (VIETNAMESE CONTEXT)
+       ========================================================================= */
+    var LETTERS_DATA = [
+      {
+        letter: 'A', lower: 'a', isVowel: true,
+        groups: ['group-ei'],
+        ipaUS: '/eɪ/', ipaUK: '/eɪ/',
+        soundIpa: '/æ/, /eɪ/, /ɑː/',
+        vnGuide: 'Gần như "ây" (khi đọc tên chữ); âm trong từ thường là "e lai a" hoặc "a dài".',
+        vnNote: 'Điểm tựa ban đầu: đọc tên chữ giống "ây" nhẹ, không kéo dài thành "ây-y".',
+        mouthTitle: 'Mở miệng rộng vừa, hạ hàm dưới',
+        mouthSub: 'Khi đọc âm /æ/ như trong "apple"',
+        mouthSteps: [
+          'Bước 1 (Tên chữ /eɪ/): Mở miệng vừa, bắt đầu giống "ê" rồi trượt nhẹ lên "i" ngắn ("ây").',
+          'Bước 2 (Âm trong từ "apple"): Hạ cằm mở miệng rộng hơn "e" tiếng Việt, đầu lưỡi chạm nhẹ sau răng cửa dưới.',
+          'Bước 3: Giữ môi thư giãn, không chu tròn môi.'
+        ],
+        vnVsEnDiff: 'Người Việt hay đọc "apple" thành "ép-pồ" (môi khép quá) hoặc "áp-pồ" (tròn môi). Tiếng Anh mở miệng rộng và dứt khoát hơn.',
+        diagramType: 'open-jaw',
+        examples: [
+          { word: 'apple', ipa: '/ˈæp.əl/', vnRead: 'ép-pồ (mở rộng)', meaning: 'quả táo' },
+          { word: 'bag', ipa: '/bæɡ/', vnRead: 'bét-g', meaning: 'cái túi' },
+          { word: 'cake', ipa: '/keɪk/', vnRead: 'khây-k', meaning: 'cái bánh' }
+        ]
+      },
+      {
+        letter: 'B', lower: 'b', isVowel: false,
+        groups: ['group-ee'],
+        ipaUS: '/biː/', ipaUK: '/biː/',
+        soundIpa: '/b/',
+        vnGuide: 'Gần như "bi" (i kéo dài); âm phụ âm là "bờ" có rung cổ họng.',
+        vnNote: 'Gần âm "b" tiếng Việt nhưng cuối từ nhớ khép môi nhẹ, không nuốt mất.',
+        mouthTitle: 'Khép hai môi, rung nhẹ ở cổ',
+        mouthSub: 'Đặt tay lên cổ thấy hơi rung nhẹ',
+        mouthSteps: [
+          'Bước 1: Mím nhẹ hai môi lại để chặn hơi.',
+          'Bước 2: Mở môi nhẹ nhàng đồng thời rung dây thanh quản.',
+          'Bước 3: Không thổi gió mạnh như chữ P.'
+        ],
+        vnVsEnDiff: 'Đầu từ "ball" gần giống "bòl" tiếng Việt; cuối từ "job" nhớ khép môi lại, đừng đọc thành "chóp" cụt hơi.',
+        diagramType: 'bilabial',
+        examples: [
+          { word: 'ball', ipa: '/bɔːl/', vnRead: 'bòl (tròn môi)', meaning: 'quả bóng' },
+          { word: 'book', ipa: '/bʊk/', vnRead: 'búc (ngắn)', meaning: 'quyển sách' },
+          { word: 'job', ipa: '/dʒɑːb/', vnRead: 'chóp (khép môi)', meaning: 'công việc' }
+        ]
+      },
+      {
+        letter: 'C', lower: 'c', isVowel: false,
+        groups: ['group-ee', 'aspirated-hard'],
+        ipaUS: '/siː/', ipaUK: '/siː/',
+        soundIpa: '/k/, /s/',
+        vnGuide: 'Gần như "xi" (xì nhẹ); khi đứng đầu từ thường đọc bật hơi "khờ" hoặc xì "xờ".',
+        vnNote: 'Tên chữ giống "xi" nhẹ; trong từ hay đọc như "khờ" bật hơi ("cat") hoặc "xờ" ("city").',
+        mouthTitle: 'Nâng cuống lưỡi bật hơi (hoặc xì đầu lưỡi)',
+        mouthSub: 'Thử đặt tay trước miệng xem có luồng gió',
+        mouthSteps: [
+          'Bước 1 (Âm /k/ như "cat"): Nâng phần sau lưỡi chạm vòm miệng trên rồi bật hơi ra.',
+          'Bước 2 (Âm /s/ như "city"): Đặt đầu lưỡi gần lợi trên, thổi luồng gió mảnh qua kẽ răng.',
+          'Bước 3: Không đọc tên chữ là "xê" như tiếng Việt.'
+        ],
+        vnVsEnDiff: 'Chữ "cat" gần "khét" có bật hơi gió; chữ "city" đọc "xít-ti" chứ không phải "xi-ty" âm "xê".',
+        diagramType: 'velar',
+        examples: [
+          { word: 'cat', ipa: '/kæt/', vnRead: 'khét (bật hơi)', meaning: 'con mèo' },
+          { word: 'cup', ipa: '/kʌp/', vnRead: 'khắp (ngắn)', meaning: 'cái cốc' },
+          { word: 'city', ipa: '/ˈsɪt.i/', vnRead: 'xít-ti', meaning: 'thành phố' }
+        ]
+      },
+      {
+        letter: 'D', lower: 'd', isVowel: false,
+        groups: ['group-ee'],
+        ipaUS: '/diː/', ipaUK: '/diː/',
+        soundIpa: '/d/',
+        vnGuide: 'Gần như "đi"; âm phụ âm là "đờ" chạm đầu lưỡi vào lợi trên.',
+        vnNote: 'Gần âm "đ" tiếng Việt nhưng đầu lưỡi chạm gờ lợi trên rõ ràng hơn.',
+        mouthTitle: 'Đầu lưỡi chạm gờ lợi trên, rung cổ',
+        mouthSub: 'Vị trí ngay sau hàm răng cửa trên',
+        mouthSteps: [
+          'Bước 1: Chạm đầu lưỡi vào gờ lợi ngay sau răng cửa trên.',
+          'Bước 2: Hạ lưỡi nhanh, phát âm kèm rung nhẹ ở cổ họng.',
+          'Bước 3: Cuối từ ("good") giữ đầu lưỡi chạm lợi dứt khoát.'
+        ],
+        vnVsEnDiff: 'Từ "dog" gần "đòg"; từ "good" đừng đọc thành "gút" bỏ bẵng đầu lưỡi ở cuối.',
+        diagramType: 'alveolar',
+        examples: [
+          { word: 'dog', ipa: '/dɔːɡ/', vnRead: 'đòg', meaning: 'con chó' },
+          { word: 'desk', ipa: '/desk/', vnRead: 'đét-sk', meaning: 'cái bàn' },
+          { word: 'good', ipa: '/ɡʊd/', vnRead: 'gút (chạm lợi)', meaning: 'tốt, giỏi' }
+        ]
+      },
+      {
+        letter: 'E', lower: 'e', isVowel: true,
+        groups: ['group-ee'],
+        ipaUS: '/iː/', ipaUK: '/iː/',
+        soundIpa: '/iː/, /e/',
+        vnGuide: 'Gần như "i" kéo dài (căng môi cười nhẹ); trong từ còn có âm "e" ngắn.',
+        vnNote: 'Cẩn thận nhầm lẫn: chữ E tiếng Anh đọc tên là "i", KHÔNG phải "e" tiếng Việt!',
+        mouthTitle: 'Môi hơi kéo ngang, lưỡi nâng cao',
+        mouthSub: 'Giữ âm "i" dài, đều hơi',
+        mouthSteps: [
+          'Bước 1 (Tên chữ /iː/): Hơi mỉm cười nhẹ, mở miệng hẹp, kéo dài âm "i".',
+          'Bước 2 (Âm /e/ như "pen"): Mở miệng vừa, đọc "pen" ngắn và gọn.',
+          'Bước 3: Không chu môi khi đọc tên chữ E.'
+        ],
+        vnVsEnDiff: 'Người Việt hay nhìn chữ E rồi đọc thành "e". Hãy nhớ: tên chữ E = "i" (như "i-gồ" trong "eagle").',
+        diagramType: 'spread',
+        examples: [
+          { word: 'pen', ipa: '/pen/', vnRead: 'pen (ngắn)', meaning: 'cây bút' },
+          { word: 'egg', ipa: '/eɡ/', vnRead: 'ét-g', meaning: 'quả trứng' },
+          { word: 'eagle', ipa: '/ˈiː.ɡəl/', vnRead: 'i-gồ (i dài)', meaning: 'chim đại bàng' }
+        ]
+      },
+      {
+        letter: 'F', lower: 'f', isVowel: false,
+        groups: [],
+        ipaUS: '/ef/', ipaUK: '/ef/',
+        soundIpa: '/f/',
+        vnGuide: 'Gần như "ép" (có gió xì ở cuối); âm phụ âm là "phờ" thổi gió, không rung cổ.',
+        vnNote: 'Răng cửa trên chạm nhẹ môi dưới và thổi hơi ra.',
+        mouthTitle: 'Răng cửa trên chạm nhẹ môi dưới',
+        mouthSub: 'Thổi luồng gió nhẹ, không rung cổ',
+        mouthSteps: [
+          'Bước 1: Đặt hàm răng trên chạm nhẹ vào mép trong môi dưới.',
+          'Bước 2: Đẩy hơi đi qua khe giữa răng trên và môi dưới.',
+          'Bước 3: Khi đọc tên chữ "ép", xì gió nhẹ ở cuối.'
+        ],
+        vnVsEnDiff: 'Từ "fish" gần "phít-sh"; cuối từ "leaf" nhớ chạm răng-môi để xì gió, không đọc thành "li" cụt.',
+        diagramType: 'labiodental',
+        examples: [
+          { word: 'fish', ipa: '/fɪʃ/', vnRead: 'phít-sh (xì nhẹ)', meaning: 'con cá' },
+          { word: 'food', ipa: '/fuːd/', vnRead: 'phu-đ (u dài)', meaning: 'thức ăn' },
+          { word: 'leaf', ipa: '/liːf/', vnRead: 'li-ph (xì cuối)', meaning: 'chiếc lá' }
+        ]
+      },
+      {
+        letter: 'G', lower: 'g', isVowel: false,
+        groups: ['group-ee'],
+        ipaUS: '/dʒiː/', ipaUK: '/dʒiː/',
+        soundIpa: '/ɡ/, /dʒ/',
+        vnGuide: 'Gần như "gi" (âm đầu "ch/gi" có rung cổ); trong từ thường là "gờ" cuống lưỡi.',
+        vnNote: 'Tên chữ là "gi" (gần "chờ" rung mạnh), không đọc là "giê" như tiếng Việt.',
+        mouthTitle: 'Nâng cuống lưỡi (hoặc bật rung đầu lưỡi)',
+        mouthSub: 'Phân biệt âm /ɡ/ ("go") và /dʒ/ ("giant")',
+        mouthSteps: [
+          'Bước 1 (Tên chữ /dʒiː/): Đầu lưỡi chạm lợi trên rồi bật ra kèm rung cổ, theo sau là "i" dài.',
+          'Bước 2 (Âm /ɡ/ như "go"): Nâng cuống lưỡi chạm vòm mềm rồi bật nhẹ có rung cổ.',
+          'Bước 3: Không đọc tên chữ G thành "giê".'
+        ],
+        vnVsEnDiff: 'Từ "go" gần "gâu"; từ "green" gần "grin"; tên chữ G đọc gần "chờ-i" có rung cổ.',
+        diagramType: 'velar',
+        examples: [
+          { word: 'go', ipa: '/ɡoʊ/', vnRead: 'gâu', meaning: 'đi' },
+          { word: 'green', ipa: '/ɡriːn/', vnRead: 'grin (i dài)', meaning: 'màu xanh lá' },
+          { word: 'giant', ipa: '/ˈdʒaɪ.ənt/', vnRead: 'chai-ợnt (rung)', meaning: 'khổng lồ' }
+        ]
+      },
+      {
+        letter: 'H', lower: 'h', isVowel: false,
+        groups: ['group-ei'],
+        ipaUS: '/eɪtʃ/', ipaUK: '/eɪtʃ/',
+        soundIpa: '/h/',
+        vnGuide: 'Gần như "ây-ch" (có gió bật cuối); âm phụ âm là "hờ" thở ra nhẹ nhàng.',
+        vnNote: 'Tên chữ bắt đầu giống "ây" và kết thúc bằng âm bật nhẹ.',
+        mouthTitle: 'Thở hơi nhẹ nhàng, miệng mở tự nhiên',
+        mouthSub: 'Không gằn giọng ở cổ họng',
+        mouthSteps: [
+          'Bước 1 (Tên chữ /eɪtʃ/): Đọc "ây" rồi bật nhẹ đầu lưỡi ở cuối.',
+          'Bước 2 (Âm /h/ như "hat"): Mở miệng theo nguyên âm sau và đẩy hơi nhẹ ra.',
+          'Bước 3: Giữ cổ họng thoải mái.'
+        ],
+        vnVsEnDiff: 'Âm "h" trong "hat", "house" nhẹ và thoáng hơn âm "h" nặng ở cổ của một số giọng địa phương Việt Nam.',
+        diagramType: 'glottal',
+        examples: [
+          { word: 'hat', ipa: '/hæt/', vnRead: 'hét (mở rộng)', meaning: 'cái mũ' },
+          { word: 'house', ipa: '/haʊs/', vnRead: 'hao-s', meaning: 'ngôi nhà' },
+          { word: 'hand', ipa: '/hænd/', vnRead: 'hen-đ', meaning: 'bàn tay' }
+        ]
+      },
+      {
+        letter: 'I', lower: 'i', isVowel: true,
+        groups: [],
+        ipaUS: '/aɪ/', ipaUK: '/aɪ/',
+        soundIpa: '/aɪ/, /ɪ/',
+        vnGuide: 'Gần như "ai" (tên chữ); âm ngắn trong từ là "i ngắn" thả lỏng.',
+        vnNote: 'Tên chữ đọc "ai", nhưng trong từ như "sit", "milk" đọc "i" ngắn thả lỏng.',
+        mouthTitle: 'Thả lỏng cơ miệng khi đọc /ɪ/ ngắn',
+        mouthSub: 'Trượt từ "a" sang "i" khi đọc tên chữ "ai"',
+        mouthSteps: [
+          'Bước 1 (Tên chữ /aɪ/): Mở miệng đọc "a" rồi trượt nhẹ lên "i" ("ai").',
+          'Bước 2 (Âm /ɪ/ như "sit"): Thả lỏng môi và lưỡi, đọc ngắn gọn.',
+          'Bước 3: Không kéo dài âm "i" trong "sit" thành "sít" dài.'
+        ],
+        vnVsEnDiff: 'Người Việt hay đọc "sit" thành "sít" căng như tiếng Việt. Hãy thả lỏng miệng và đọc ngắn gọn.',
+        diagramType: 'spread',
+        examples: [
+          { word: 'ice', ipa: '/aɪs/', vnRead: 'ai-s', meaning: 'nước đá' },
+          { word: 'sit', ipa: '/sɪt/', vnRead: 'xít-t (ngắn, thả lỏng)', meaning: 'ngồi' },
+          { word: 'milk', ipa: '/mɪlk/', vnRead: 'mưu-k / mɪlk', meaning: 'sữa' }
+        ]
+      },
+      {
+        letter: 'J', lower: 'j', isVowel: false,
+        groups: ['group-ei'],
+        ipaUS: '/dʒeɪ/', ipaUK: '/dʒeɪ/',
+        soundIpa: '/dʒ/',
+        vnGuide: 'Gần như "giây / dây" (có rung thanh quản); âm phụ âm là "chờ" rung mạnh.',
+        vnNote: 'Gợi ý đọc gần "giây" nhẹ nhưng có chúm môi và rung dây thanh.',
+        mouthTitle: 'Hơi chúm môi, lưỡi bật rung',
+        mouthSub: 'Rung mạnh dây thanh hơn âm "ch" tiếng Việt',
+        mouthSteps: [
+          'Bước 1: Đặt đầu lưỡi gần lợi trên, hơi chúm nhẹ hai môi.',
+          'Bước 2: Bật âm kèm rung cổ họng rõ ràng.',
+          'Bước 3: Đọc tên chữ gần như "giây" trượt nhẹ.'
+        ],
+        vnVsEnDiff: 'Đừng đọc "jump" thành "chăm" khô khốc như tiếng Việt; hãy rung cổ họng rõ ở đầu từ.',
+        diagramType: 'palatal',
+        examples: [
+          { word: 'jump', ipa: '/dʒʌmp/', vnRead: 'chăm-p (rung cổ)', meaning: 'nhảy' },
+          { word: 'juice', ipa: '/dʒuːs/', vnRead: 'chu-s (u dài)', meaning: 'nước ép' },
+          { word: 'jam', ipa: '/dʒæm/', vnRead: 'chem (rung)', meaning: 'mứt trái cây' }
+        ]
+      },
+      {
+        letter: 'K', lower: 'k', isVowel: false,
+        groups: ['group-ei', 'aspirated-hard'],
+        ipaUS: '/keɪ/', ipaUK: '/keɪ/',
+        soundIpa: '/k/',
+        vnGuide: 'Gần như "kây" (bật hơi gió); âm phụ âm là "khờ" bật hơi mạnh.',
+        vnNote: 'Đọc tên chữ gần "kây" nhưng nhớ bật hơi gió rõ ràng.',
+        mouthTitle: 'Nâng cuống lưỡi, bật hơi gió mạnh',
+        mouthSub: 'Thử đặt tay trước miệng thấy luồng hơi bật',
+        mouthSteps: [
+          'Bước 1: Nâng phần sau lưỡi chạm vòm miệng mềm để chặn hơi.',
+          'Bước 2: Hạ lưỡi nhanh, đẩy luồng hơi bật mạnh ra ngoài.',
+          'Bước 3: Không rung dây thanh quản.'
+        ],
+        vnVsEnDiff: 'Từ "key" gần "khii" bật hơi rõ; chú ý chữ K đứng trước N ("know") là âm câm, không đọc K.',
+        diagramType: 'velar',
+        examples: [
+          { word: 'key', ipa: '/kiː/', vnRead: 'khii (bật hơi)', meaning: 'chìa khoá' },
+          { word: 'king', ipa: '/kɪŋ/', vnRead: 'khinh (ngắn)', meaning: 'nhà vua' },
+          { word: 'kite', ipa: '/kaɪt/', vnRead: 'khai-t', meaning: 'con diều' }
+        ]
+      },
+      {
+        letter: 'L', lower: 'l', isVowel: false,
+        groups: [],
+        ipaUS: '/el/', ipaUK: '/el/',
+        soundIpa: '/l/',
+        vnGuide: 'Gần như "eo / eo-lờ"; âm phụ âm là "lờ" đầu lưỡi chạm lợi trên.',
+        vnNote: 'Tên chữ gần "eo" có chạm đầu lưỡi lên lợi trên ở cuối.',
+        mouthTitle: 'Đầu lưỡi chạm gờ lợi trên',
+        mouthSub: 'Giữ đầu lưỡi chạm lợi khi kết thúc từ có L',
+        mouthSteps: [
+          'Bước 1: Đặt đầu lưỡi chạm vào gờ lợi ngay sau răng cửa trên.',
+          'Bước 2: Cho hơi thoát ra hai bên rìa lưỡi.',
+          'Bước 3: Ở cuối từ ("ball"), giữ đầu lưỡi chạm lợi rõ ràng.'
+        ],
+        vnVsEnDiff: 'Người Việt hay bỏ qua âm L ở cuối từ ("school", "ball"). Hãy chạm đầu lưỡi lên lợi trên rõ ràng.',
+        diagramType: 'alveolar',
+        examples: [
+          { word: 'lion', ipa: '/ˈlaɪ.ən/', vnRead: 'lai-ợn', meaning: 'con sư tử' },
+          { word: 'lamp', ipa: '/læmp/', vnRead: 'lemp', meaning: 'cái đèn' },
+          { word: 'ball', ipa: '/bɔːl/', vnRead: 'bòl (chạm lợi)', meaning: 'quả bóng' }
+        ]
+      },
+      {
+        letter: 'M', lower: 'm', isVowel: false,
+        groups: [],
+        ipaUS: '/em/', ipaUK: '/em/',
+        soundIpa: '/m/',
+        vnGuide: 'Gần như "em"; âm phụ âm là "mờ" mím môi và ngân nhẹ qua mũi.',
+        vnNote: 'Rất thân thuộc với tiếng Việt, chú ý giữ khép môi khi M ở cuối từ.',
+        mouthTitle: 'Mím hai môi, hơi vang qua mũi',
+        mouthSub: 'Giữ môi khép nhẹ khi đọc "home", "swim"',
+        mouthSteps: [
+          'Bước 1: Khép nhẹ hai môi lại.',
+          'Bước 2: Đẩy luồng hơi rung đi lên khoang mũi.',
+          'Bước 3: Khi M ở cuối từ, giữ môi khép thêm 0.2 giây.'
+        ],
+        vnVsEnDiff: 'Từ "map" gần "mép"; từ "home" đọc gần "hâu-m" với môi khép lại ở cuối.',
+        diagramType: 'bilabial',
+        examples: [
+          { word: 'map', ipa: '/mæp/', vnRead: 'mép', meaning: 'bản đồ' },
+          { word: 'moon', ipa: '/muːn/', vnRead: 'mun (u dài)', meaning: 'mặt trăng' },
+          { word: 'home', ipa: '/hoʊm/', vnRead: 'hâu-m (khép môi)', meaning: 'ngôi nhà' }
+        ]
+      },
+      {
+        letter: 'N', lower: 'n', isVowel: false,
+        groups: [],
+        ipaUS: '/en/', ipaUK: '/en/',
+        soundIpa: '/n/',
+        vnGuide: 'Gần như "en"; âm phụ âm là "nờ" đầu lưỡi chạm lợi trên, hơi qua mũi.',
+        vnNote: 'Đầu lưỡi chạm lợi trên (không chạm răng dưới).',
+        mouthTitle: 'Đầu lưỡi chạm lợi trên, hơi qua mũi',
+        mouthSub: 'Khác với "ng" ở cuống lưỡi',
+        mouthSteps: [
+          'Bước 1: Mở miệng nhẹ, đặt đầu lưỡi chạm vào gờ lợi trên.',
+          'Bước 2: Phát âm rung qua mũi.',
+          'Bước 3: Cuối từ ("sun", "pen") giữ đầu lưỡi chạm lợi.'
+        ],
+        vnVsEnDiff: 'Từ "sun" gần "xăn" với đầu lưỡi chạm lợi trên rõ rệt.',
+        diagramType: 'alveolar',
+        examples: [
+          { word: 'nose', ipa: '/noʊz/', vnRead: 'nâu-z', meaning: 'cái mũi' },
+          { word: 'sun', ipa: '/sʌn/', vnRead: 'xăn (chạm lợi)', meaning: 'mặt trời' },
+          { word: 'pen', ipa: '/pen/', vnRead: 'pen', meaning: 'cây bút' }
+        ]
+      },
+      {
+        letter: 'O', lower: 'o', isVowel: true,
+        groups: [],
+        ipaUS: '/oʊ/', ipaUK: '/əʊ/',
+        soundIpa: '/ɑː/, /ɔː/, /oʊ/',
+        vnGuide: 'Gần như "âu" (tên chữ); trong từ có thể đọc tròn môi "o" hoặc mở rộng.',
+        vnNote: 'Tên chữ đọc gần "âu", không đọc là "o" hay "ô" đơn thuần.',
+        mouthTitle: 'Tròn môi khi đọc /ɔː/, /oʊ/',
+        mouthSub: 'Chú ý "hot" ở giọng Mỹ mở miệng rộng',
+        mouthSteps: [
+          'Bước 1 (Tên chữ /oʊ/): Bắt đầu tròn môi rồi trượt khép nhẹ sang "u" ("âu").',
+          'Bước 2 (Âm /ɔː/ như "orange"): Tròn môi rõ, hạ lưỡi thấp.',
+          'Bước 3 (Âm /ɑː/ như "hot" giọng Mỹ): Mở miệng rộng, lưỡi hạ thấp.'
+        ],
+        vnVsEnDiff: 'Từ "go" gần "gâu"; từ "hot" giọng Mỹ nghe gần "hát/hót" mở miệng rộng hơn âm "ô" tiếng Việt.',
+        diagramType: 'round',
+        examples: [
+          { word: 'orange', ipa: '/ˈɔːr.ɪndʒ/', vnRead: 'o-rình (tròn môi)', meaning: 'quả cam' },
+          { word: 'hot', ipa: '/hɑːt/', vnRead: 'hát/hót (mở rộng)', meaning: 'nóng' },
+          { word: 'go', ipa: '/ɡoʊ/', vnRead: 'gâu', meaning: 'đi' }
+        ]
+      },
+      {
+        letter: 'P', lower: 'p', isVowel: false,
+        groups: ['group-ee', 'aspirated-hard'],
+        ipaUS: '/piː/', ipaUK: '/piː/',
+        soundIpa: '/p/',
+        vnGuide: 'Gần như "pi" (bật hơi); âm phụ âm là "pờ" mím môi bật hơi mạnh.',
+        vnNote: 'Nhớ mím chặt môi rồi bật luồng gió mạnh, không rung cổ.',
+        mouthTitle: 'Mím môi chặt, bật hơi mạnh',
+        mouthSub: 'Không rung dây thanh quản',
+        mouthSteps: [
+          'Bước 1: Mím chặt hai môi để nén hơi.',
+          'Bước 2: Bật môi mở nhanh, đẩy luồng hơi mạnh ra ngoài.',
+          'Bước 3: Cuối từ ("map") khép môi chặn hơi lại.'
+        ],
+        vnVsEnDiff: 'Từ "pen" có luồng gió bật rõ ở đầu từ, khác với "b" rung cổ.',
+        diagramType: 'bilabial',
+        examples: [
+          { word: 'pen', ipa: '/pen/', vnRead: 'phen / pen (bật hơi)', meaning: 'cây bút' },
+          { word: 'pig', ipa: '/pɪɡ/', vnRead: 'phích / píc', meaning: 'con lợn' },
+          { word: 'map', ipa: '/mæp/', vnRead: 'mép (khép môi)', meaning: 'bản đồ' }
+        ]
+      },
+      {
+        letter: 'Q', lower: 'q', isVowel: false,
+        groups: ['aspirated-hard'],
+        ipaUS: '/kjuː/', ipaUK: '/kjuː/',
+        soundIpa: '/kw/',
+        vnGuide: 'Gần như "kiu"; trong từ (thường đi với U) đọc gần "kwờ" chúm môi.',
+        vnNote: 'Tên chữ đọc gần "kiu"; trong từ "queen", "quick" đọc gần "kwin", "kwích".',
+        mouthTitle: 'Bật /k/ rồi chúm môi trượt sang /w/',
+        mouthSub: 'Luôn đi kèm chữ U trong từ phổ biến',
+        mouthSteps: [
+          'Bước 1 (Tên chữ /kjuː/): Đọc gần như "kiu" rõ ràng.',
+          'Bước 2 (Trong từ "queen"): Nâng cuống lưỡi bật /k/, đồng thời chúm môi tròn.',
+          'Bước 3: Trượt nhanh môi sang nguyên âm đứng sau.'
+        ],
+        vnVsEnDiff: 'Từ "queen" đọc gần "kwin" (môi tròn), không đọc giống "quy" nhẹ của tiếng Việt.',
+        diagramType: 'round',
+        examples: [
+          { word: 'queen', ipa: '/kwiːn/', vnRead: 'kwin (chúm môi)', meaning: 'nữ hoàng' },
+          { word: 'quick', ipa: '/kwɪk/', vnRead: 'kwích (nhanh)', meaning: 'nhanh' },
+          { word: 'quiz', ipa: '/kwɪz/', vnRead: 'kwiz', meaning: 'bài kiểm tra ngắn' }
+        ]
+      },
+      {
+        letter: 'R', lower: 'r', isVowel: false,
+        groups: ['aspirated-hard'],
+        ipaUS: '/ɑːr/', ipaUK: '/ɑː/',
+        soundIpa: '/r/',
+        vnGuide: 'Gần như "a-rờ (cong lưỡi)"; âm phụ âm cong lưỡi nhưng KHÔNG chạm lợi.',
+        vnNote: 'Rất quan trọng: đầu lưỡi cong lên nhưng giữ khoảng cách, không chạm vào vòm miệng.',
+        mouthTitle: 'Cong đầu lưỡi lên, KHÔNG chạm lợi',
+        mouthSub: 'Hơi chúm nhẹ môi, rung cổ họng',
+        mouthSteps: [
+          'Bước 1: Cong nhẹ đầu lưỡi hướng lên phía sau lợi trên.',
+          'Bước 2: Giữ khe hở, KHÔNG để đầu lưỡi chạm vào vòm miệng hay lợi.',
+          'Bước 3: Hơi chúm môi và rung dây thanh.'
+        ],
+        vnVsEnDiff: 'Khác với âm "r" rung đầu lưỡi hoặc "gi/d" của tiếng Việt: âm R tiếng Anh cong lưỡi lơ lửng và rung mượt.',
+        diagramType: 'retroflex',
+        examples: [
+          { word: 'red', ipa: '/red/', vnRead: 'rét (cong lưỡi)', meaning: 'màu đỏ' },
+          { word: 'rabbit', ipa: '/ˈræb.ɪt/', vnRead: 'rép-bít', meaning: 'con thỏ' },
+          { word: 'rain', ipa: '/reɪn/', vnRead: 'rây-n', meaning: 'cơn mưa' }
+        ]
+      },
+      {
+        letter: 'S', lower: 's', isVowel: false,
+        groups: [],
+        ipaUS: '/es/', ipaUK: '/es/',
+        soundIpa: '/s/, /z/',
+        vnGuide: 'Gần như "ét" (có gió xì cuối); âm phụ âm là "xờ" thổi hơi mảnh.',
+        vnNote: 'Nhớ giữ âm xì "s" ở cuối từ số nhiều hoặc từ kết thúc bằng S.',
+        mouthTitle: 'Đầu lưỡi gần lợi trên, thổi hơi mảnh',
+        mouthSub: 'Không rung cổ khi đọc /s/ ("sun", "bus")',
+        mouthSteps: [
+          'Bước 1: Đặt đầu lưỡi gần gờ lợi trên, hai hàm răng khép hờ.',
+          'Bước 2: Thổi luồng hơi mảnh qua kẽ răng tạo tiếng xì.',
+          'Bước 3: Khi đọc tên chữ "ét", xì gió nhẹ ở cuối.'
+        ],
+        vnVsEnDiff: 'Từ "sun" gần "xăn"; cuối từ "bus" đọc gần "bắt-s" có tiếng xì ở cuối.',
+        diagramType: 'alveolar',
+        examples: [
+          { word: 'sun', ipa: '/sʌn/', vnRead: 'xăn (xì nhẹ)', meaning: 'mặt trời' },
+          { word: 'star', ipa: '/stɑːr/', vnRead: 'xtaa', meaning: 'ngôi sao' },
+          { word: 'bus', ipa: '/bʌs/', vnRead: 'bắt-s (xì cuối)', meaning: 'xe buýt' }
+        ]
+      },
+      {
+        letter: 'T', lower: 't', isVowel: false,
+        groups: ['group-ee', 'aspirated-hard'],
+        ipaUS: '/tiː/', ipaUK: '/tiː/',
+        soundIpa: '/t/',
+        vnGuide: 'Gần như "ti"; âm phụ âm là "tờ" đặt đầu lưỡi chạm lợi trên và bật hơi.',
+        vnNote: 'Đầu từ có T ("ten", "top") nên bật hơi gió rõ hơn chữ "t" tiếng Việt.',
+        mouthTitle: 'Đầu lưỡi chạm lợi trên, bật hơi',
+        mouthSub: 'Thử đặt tay trước miệng khi đọc "ten", "top"',
+        mouthSteps: [
+          'Bước 1: Đặt đầu lưỡi chạm gờ lợi trên để chặn khí.',
+          'Bước 2: Bật lưỡi mở nhanh tạo luồng hơi rõ rệt.',
+          'Bước 3: Cuối từ ("cat") chạm lưỡi chặn âm cuối.'
+        ],
+        vnVsEnDiff: 'Từ "ten" gần "then / ten" có bật hơi; cuối từ "cat" nhớ chặn âm "t" ở cuối.',
+        diagramType: 'alveolar',
+        examples: [
+          { word: 'ten', ipa: '/ten/', vnRead: 'then / ten (bật hơi)', meaning: 'số mười' },
+          { word: 'tree', ipa: '/triː/', vnRead: 'trii', meaning: 'cái cây' },
+          { word: 'cat', ipa: '/kæt/', vnRead: 'khét-t (chặn cuối)', meaning: 'con mèo' }
+        ]
+      },
+      {
+        letter: 'U', lower: 'u', isVowel: true,
+        groups: [],
+        ipaUS: '/juː/', ipaUK: '/juː/',
+        soundIpa: '/ʌ/, /ʊ/, /uː/',
+        vnGuide: 'Gần như "iu" (tên chữ); trong từ phổ biến là "ă" ngắn thả lỏng hoặc "u".',
+        vnNote: 'Tên chữ đọc "iu", nhưng "cup", "sun" đọc gần "ă" thả lỏng.',
+        mouthTitle: 'Thả lỏng khi đọc /ʌ/ ("cup"), tròn môi khi đọc /uː/ ("blue")',
+        mouthSub: 'Không nhầm "cup" thành "cúp" âm "u"',
+        mouthSteps: [
+          'Bước 1 (Tên chữ /juː/): Đọc gần như "iu" kéo nhẹ.',
+          'Bước 2 (Âm /ʌ/ như "cup"): Mở miệng tự nhiên, đọc gần "ă" ngắn thả lỏng.',
+          'Bước 3 (Âm /uː/ như "blue"): Chúm tròn môi đọc "u" dài.'
+        ],
+        vnVsEnDiff: 'Người Việt hay đọc "cup" thành "cúp" (âm u). Hãy đọc gần "khắp" (âm ă ngắn, không tròn môi).',
+        diagramType: 'open-jaw',
+        examples: [
+          { word: 'cup', ipa: '/kʌp/', vnRead: 'khắp (ă thả lỏng)', meaning: 'cái cốc' },
+          { word: 'umbrella', ipa: '/ʌmˈbrel.ə/', vnRead: 'ăm-bre-lờ', meaning: 'cái ô / dù' },
+          { word: 'blue', ipa: '/bluː/', vnRead: 'blu (u dài)', meaning: 'màu xanh dương' }
+        ]
+      },
+      {
+        letter: 'V', lower: 'v', isVowel: false,
+        groups: ['group-ee'],
+        ipaUS: '/viː/', ipaUK: '/viː/',
+        soundIpa: '/v/',
+        vnGuide: 'Gần như "vi"; âm phụ âm là "vờ" răng trên chạm môi dưới và rung cổ.',
+        vnNote: 'Răng cửa trên chạm môi dưới và rung cổ họng rõ ràng.',
+        mouthTitle: 'Răng trên chạm môi dưới, rung cổ',
+        mouthSub: 'Giống /f/ nhưng có rung dây thanh quản',
+        mouthSteps: [
+          'Bước 1: Đặt răng cửa trên chạm nhẹ môi dưới.',
+          'Bước 2: Đẩy hơi ra đồng thời rung cổ họng.',
+          'Bước 3: Giữ độ rung ổn định ở đầu và cuối từ.'
+        ],
+        vnVsEnDiff: 'Khác với cách đọc "d/gi" ở một số giọng địa phương Việt Nam: tiếng Anh dùng răng trên chạm môi dưới và rung cổ.',
+        diagramType: 'labiodental',
+        examples: [
+          { word: 'van', ipa: '/væn/', vnRead: 'ven (rung môi-răng)', meaning: 'xe tải nhỏ' },
+          { word: 'violin', ipa: '/ˌvaɪ.əˈlɪn/', vnRead: 'vai-ơ-lìn', meaning: 'đàn vĩ cầm' },
+          { word: 'love', ipa: '/lʌv/', vnRead: 'lắp-v (rung cuối)', meaning: 'yêu thương' }
+        ]
+      },
+      {
+        letter: 'W', lower: 'w', isVowel: false,
+        groups: ['aspirated-hard'],
+        ipaUS: '/ˈdʌb.əl.juː/', ipaUK: '/ˈdʌb.əl.juː/',
+        soundIpa: '/w/',
+        vnGuide: 'Gần như "đắp-bồ-iu" (tên chữ); âm phụ âm đọc gần "u" lướt tròn môi.',
+        vnNote: 'Tên chữ hơi dài (3 âm tiết), hãy đọc chậm 0.55x để luyện nhịp.',
+        mouthTitle: 'Chúm tròn môi như "u" rồi lướt sang âm sau',
+        mouthSub: 'Môi tròn mềm mại, không cắn môi',
+        mouthSteps: [
+          'Bước 1: Chúm tròn hai môi như khi chuẩn bị đọc "u".',
+          'Bước 2: Nhanh chóng mở miệng trượt sang nguyên âm đứng sau ("water", "window").',
+          'Bước 3: Khi đọc tên chữ, tách rõ 3 nhịp: đắp - bồ - iu.'
+        ],
+        vnVsEnDiff: 'Từ "water" bắt đầu bằng môi tròn lướt ("wo-tơ"), không đọc cứng như âm "v" tiếng Việt.',
+        diagramType: 'round',
+        examples: [
+          { word: 'water', ipa: '/ˈwɔː.tər/', vnRead: 'wo-tơ (tròn môi)', meaning: 'nước' },
+          { word: 'window', ipa: '/ˈwɪn.doʊ/', vnRead: 'win-đâu', meaning: 'cửa sổ' },
+          { word: 'wolf', ipa: '/wʊlf/', vnRead: 'wulf', meaning: 'con sói' }
+        ]
+      },
+      {
+        letter: 'X', lower: 'x', isVowel: false,
+        groups: ['aspirated-hard'],
+        ipaUS: '/eks/', ipaUK: '/eks/',
+        soundIpa: '/ks/, /ɡz/',
+        vnGuide: 'Gần như "ích-xờ" (kết hợp /k/ + /s/); cuối từ đọc gần "c-x".',
+        vnNote: 'Không đọc tên chữ là "ích-xì" như tiếng Việt.',
+        mouthTitle: 'Bật /k/ bằng cuống lưỡi rồi xì /s/',
+        mouthSub: 'Hai âm nối tiếp nhanh trong "box", "six"',
+        mouthSteps: [
+          'Bước 1: Nâng cuống lưỡi bật âm /k/ nhẹ.',
+          'Bước 2: Lập tức đưa đầu lưỡi ra phía trước thổi âm xì /s/.',
+          'Bước 3: Nối liền mạch hai bước trong một nhịp.'
+        ],
+        vnVsEnDiff: 'Từ "box" đọc gần "bốc-x" (có bật nhẹ và xì cuối), không đọc thành "bốc" cụt.',
+        diagramType: 'velar',
+        examples: [
+          { word: 'box', ipa: '/bɑːks/', vnRead: 'bốc-x', meaning: 'cái hộp' },
+          { word: 'fox', ipa: '/fɑːks/', vnRead: 'phốc-x', meaning: 'con cáo' },
+          { word: 'six', ipa: '/sɪks/', vnRead: 'xích-x', meaning: 'số sáu' }
+        ]
+      },
+      {
+        letter: 'Y', lower: 'y', isVowel: false,
+        groups: ['aspirated-hard'],
+        ipaUS: '/waɪ/', ipaUK: '/waɪ/',
+        soundIpa: '/j/, /aɪ/, /i/',
+        vnGuide: 'Gần như "oai" (tên chữ); đầu từ đọc gần "i" lướt nhẹ ("i-ét").',
+        vnNote: 'Đầu từ "yes", "yellow" lướt nhẹ từ "i", không đọc nặng thành "dét".',
+        mouthTitle: 'Nâng giữa lưỡi lướt sang nguyên âm sau',
+        mouthSub: 'Nhẹ nhàng, không cọ xát mạnh như "d/gi"',
+        mouthSteps: [
+          'Bước 1 (Tên chữ /waɪ/): Đọc gần như "oai" rõ ràng.',
+          'Bước 2 (Đầu từ như "yes"): Nâng nhẹ giữa lưỡi rồi trượt nhanh sang "e" ("i-ét").',
+          'Bước 3: Giữ cơ miệng linh hoạt, không gằn.'
+        ],
+        vnVsEnDiff: 'Người Việt hay đọc "yes" thành "dét" nặng. Hãy thử đọc lướt "i-ét" nhẹ nhàng hơn.',
+        diagramType: 'spread',
+        examples: [
+          { word: 'yes', ipa: '/jes/', vnRead: 'i-ét (lướt nhẹ)', meaning: 'vâng, có' },
+          { word: 'yellow', ipa: '/ˈjel.oʊ/', vnRead: 'i-eo-lâu', meaning: 'màu vàng' },
+          { word: 'yo-yo', ipa: '/ˈjoʊ.joʊ/', vnRead: 'iâu-iâu', meaning: 'đồ chơi yo-yo' }
+        ]
+      },
+      {
+        letter: 'Z', lower: 'z', isVowel: false,
+        groups: ['group-ee'],
+        ipaUS: '/ziː/', ipaUK: '/zed/',
+        soundIpa: '/z/',
+        vnGuide: 'Gần như "di" (giọng Mỹ) hoặc "dét" (giọng Anh); âm phụ âm rung mạnh qua kẽ răng.',
+        vnNote: 'Giống /s/ nhưng có rung cổ họng rõ rệt.',
+        mouthTitle: 'Đầu lưỡi gần lợi trên, rung cổ mạnh',
+        mouthSub: 'Rung dây thanh khi đẩy hơi qua kẽ răng',
+        mouthSteps: [
+          'Bước 1: Đặt đầu lưỡi gần gờ lợi trên, hai hàm răng khép hờ.',
+          'Bước 2: Đẩy hơi qua kẽ răng đồng thời rung cổ họng.',
+          'Bước 3: Giữ độ rung ở cuối từ như "zoo".'
+        ],
+        vnVsEnDiff: 'Từ "zoo" gần "zuu" có rung cổ; phân biệt với "s" không rung cổ.',
+        diagramType: 'alveolar',
+        examples: [
+          { word: 'zoo', ipa: '/zuː/', vnRead: 'zuu (rung cổ)', meaning: 'sở thú' },
+          { word: 'zebra', ipa: '/ˈziː.brə/', vnRead: 'dii-brờ (US)', meaning: 'ngựa vằn' },
+          { word: 'zero', ipa: '/ˈzɪr.oʊ/', vnRead: 'zi-râu', meaning: 'số không' }
+        ]
+      }
+    ];
+
+    /* =========================================================================
+       2. DATA: BASIC VOWEL & CONSONANT QUICK REFERENCE TABLE FOR BEGINNERS
+       ========================================================================= */
+    var QUICK_REFERENCE_GROUPS = [
+      {
+        title: 'Nguyên Âm Ngắn Thường Gặp',
+        desc: 'Đọc ngắn, gọn, không kéo dài như nguyên âm đôi.',
+        rows: [
+          { ipa: '/ɪ/', word: 'sit', vn: 'xít-t (ngắn, thả lỏng)', meaning: 'ngồi' },
+          { ipa: '/e/', word: 'pen', vn: 'pen (ngắn gọn)', meaning: 'cây bút' },
+          { ipa: '/æ/', word: 'cat', vn: 'khét (mở miệng rộng)', meaning: 'con mèo' },
+          { ipa: '/ʌ/', word: 'cup', vn: 'khắp (ă thả lỏng)', meaning: 'cái cốc' },
+          { ipa: '/ʊ/', word: 'book', vn: 'búc (ngắn gọn)', meaning: 'quyển sách' }
+        ]
+      },
+      {
+        title: 'Nguyên Âm Dài & Nguyên Âm Đôi',
+        desc: 'Kéo dài hoặc trượt mượt từ âm đầu sang âm sau.',
+        rows: [
+          { ipa: '/iː/', word: 'see', vn: 'xii (kéo dài, hơi cười)', meaning: 'nhìn thấy' },
+          { ipa: '/ɑː/', word: 'car', vn: 'caa (mở rộng, trầm)', meaning: 'xe ô tô' },
+          { ipa: '/ɔː/', word: 'ball', vn: 'bòl (tròn môi, dài)', meaning: 'quả bóng' },
+          { ipa: '/uː/', word: 'moon', vn: 'mun (chúm môi tròn)', meaning: 'mặt trăng' },
+          { ipa: '/eɪ/', word: 'day', vn: 'đây (trượt nhẹ)', meaning: 'ngày' },
+          { ipa: '/aɪ/', word: 'time', vn: 'thai-m', meaning: 'thời gian' }
+        ]
+      },
+      {
+        title: 'Phụ Âm Bật Hơi & Âm Rung',
+        desc: 'Chú ý luồng gió bật ra tay hoặc độ rung ở cổ họng.',
+        rows: [
+          { ipa: '/p/', word: 'pen', vn: 'bật hơi rõ ở môi', meaning: 'cây bút' },
+          { ipa: '/t/', word: 'ten', vn: 'bật hơi đầu lưỡi', meaning: 'số mười' },
+          { ipa: '/k/', word: 'key', vn: 'bật hơi cuống lưỡi', meaning: 'chìa khoá' },
+          { ipa: '/b/', word: 'book', vn: 'rung cổ, không bật mạnh', meaning: 'quyển sách' },
+          { ipa: '/d/', word: 'dog', vn: 'rung cổ, chạm lợi', meaning: 'con chó' },
+          { ipa: '/ɡ/', word: 'go', vn: 'rung cổ, cuống lưỡi', meaning: 'đi' }
+        ]
+      },
+      {
+        title: 'Phụ Âm Xì, Môi-Răng & Cong Lưỡi',
+        desc: 'Các âm dễ gây nhầm lẫn nhất cho người mới học tại Việt Nam.',
+        rows: [
+          { ipa: '/f/', word: 'fish', vn: 'răng trên chạm môi dưới, xì', meaning: 'con cá' },
+          { ipa: '/v/', word: 'van', vn: 'răng trên chạm môi dưới, rung', meaning: 'xe tải nhỏ' },
+          { ipa: '/s/', word: 'sun', vn: 'xì nhẹ qua kẽ răng', meaning: 'mặt trời' },
+          { ipa: '/z/', word: 'zoo', vn: 'xì có rung cổ', meaning: 'sở thú' },
+          { ipa: '/r/', word: 'red', vn: 'cong lưỡi, không chạm lợi', meaning: 'màu đỏ' },
+          { ipa: '/w/', word: 'water', vn: 'chúm tròn môi lướt âm', meaning: 'nước' }
+        ]
+      }
+    ];
+
+    /* =========================================================================
+       3. SAFE STATE & STORAGE HELPERS (WEBVIEW / APK SAFE)
+       ========================================================================= */
+    var STORAGE_LEARNED = 'beginner_alphabet_learned_v1';
+    var STORAGE_ACCENT = 'beginner_alphabet_accent_v1';
+
+    function safeGetStorage(key) {
+      try {
+        if (window && window.localStorage) {
+          return window.localStorage.getItem(key);
+        }
+      } catch (e) {
+        return null;
+      }
+      return null;
+    }
+
+    function safeSetStorage(key, value) {
+      try {
+        if (window && window.localStorage) {
+          window.localStorage.setItem(key, value);
+        }
+      } catch (e) {
+        // Ignore storage restrictions in restricted WebViews
+      }
+    }
+
+    function loadInitialLearnedList() {
+      try {
+        var raw = safeGetStorage(STORAGE_LEARNED);
+        if (!raw) return [];
+        var parsed = JSON.parse(raw);
+        if (Object.prototype.toString.call(parsed) === '[object Array]') {
+          return parsed;
+        }
+      } catch (e) {
+        return [];
+      }
+      return [];
+    }
+
+    var appState = {
+      filter: 'all',
+      accent: safeGetStorage(STORAGE_ACCENT) || 'en-US',
+      learned: loadInitialLearnedList(),
+      modalLetter: null,
+      activeSpeakId: null
+    };
+
+    function hasLearned(letter) {
+      for (var i = 0; i < appState.learned.length; i++) {
+        if (appState.learned[i] === letter) return true;
+      }
+      return false;
+    }
+
+    function toggleLearnedLetter(letter) {
+      try {
+        var nextList = [];
+        var found = false;
+        for (var i = 0; i < appState.learned.length; i++) {
+          if (appState.learned[i] === letter) {
+            found = true;
+          } else {
+            nextList.push(appState.learned[i]);
+          }
+        }
+        if (!found) {
+          nextList.push(letter);
+          showToast('Đã đánh dấu "' + letter + '" là Đã thuộc ✓');
+        } else {
+          showToast('Đã bỏ đánh dấu "' + letter + '"');
+        }
+        appState.learned = nextList;
+        safeSetStorage(STORAGE_LEARNED, JSON.stringify(appState.learned));
+        refreshProgressUI();
+        renderQuickJumpStrip();
+        renderLettersGrid();
+        refreshModalLearnedButton();
+      } catch (err) {
+        showToast('Không thể cập nhật trạng thái lúc này.');
+      }
+    }
+
+    function resetAllProgress() {
+      try {
+        appState.learned = [];
+        safeSetStorage(STORAGE_LEARNED, '[]');
+        refreshProgressUI();
+        renderQuickJumpStrip();
+        renderLettersGrid();
+        refreshModalLearnedButton();
+        showToast('Đã đặt lại tiến độ về 0/26 chữ cái.');
+      } catch (err) {
+        showToast('Đã đặt lại tiến độ.');
+      }
+    }
+
+    /* =========================================================================
+       4. INLINE SVG ARTICULATION ILLUSTRATIONS (VIETNAMESE LABELED)
+       ========================================================================= */
+    function buildMouthSVG(diagramType) {
+      var tonguePath = 'M 54 62 Q 78 55 100 60';
+      var lipMark = '<ellipse cx="112" cy="46" rx="4" ry="7" fill="none" stroke="#2563eb" stroke-width="2.4"/>';
+      var cueMark = '';
+
+      if (diagramType === 'open-jaw') {
+        tonguePath = 'M 52 67 Q 76 70 100 63';
+        lipMark = '<ellipse cx="113" cy="47" rx="5.5" ry="10" fill="none" stroke="#ea580c" stroke-width="2.4" stroke-dasharray="3 2"/>';
+      } else if (diagramType === 'spread') {
+        tonguePath = 'M 54 54 Q 80 42 102 47';
+        lipMark = '<line x1="108" y1="45" x2="117" y2="45" stroke="#0284c7" stroke-width="2.8" stroke-linecap="round"/>';
+      } else if (diagramType === 'round') {
+        tonguePath = 'M 54 58 Q 80 52 99 56';
+        lipMark = '<ellipse cx="114" cy="46" rx="4" ry="7.5" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2.6"/>';
+      } else if (diagramType === 'bilabial') {
+        tonguePath = 'M 54 60 Q 78 57 99 59';
+        lipMark = '<line x1="106" y1="42" x2="116" y2="42" stroke="#1d4ed8" stroke-width="2.8" stroke-linecap="round"/><line x1="106" y1="50" x2="116" y2="50" stroke="#1d4ed8" stroke-width="2.8" stroke-linecap="round"/>';
+        cueMark = '<line x1="119" y1="46" x2="128" y2="46" stroke="#0ea5e9" stroke-width="2.4" stroke-linecap="round"/>';
+      } else if (diagramType === 'labiodental') {
+        tonguePath = 'M 54 60 Q 78 57 98 59';
+        lipMark = '<rect x="106" y="38" width="6" height="5" rx="1" fill="#ffffff" stroke="#334155" stroke-width="1.8"/><path d="M 108 47 Q 114 50 118 46" fill="none" stroke="#e11d48" stroke-width="2.6" stroke-linecap="round"/>';
+      } else if (diagramType === 'alveolar') {
+        tonguePath = 'M 54 61 Q 78 45 101 36';
+        cueMark = '<circle cx="101" cy="36" r="3.8" fill="#facc15" stroke="#0f172a" stroke-width="1.4"/>';
+      } else if (diagramType === 'retroflex') {
+        tonguePath = 'M 54 61 Q 78 44 93 36 Q 97 39 95 43';
+        cueMark = '<path d="M 98 36 A 7 7 0 0 1 101 44" fill="none" stroke="#0284c7" stroke-width="2" stroke-dasharray="2 2"/>';
+      } else if (diagramType === 'palatal') {
+        tonguePath = 'M 54 61 Q 80 39 98 47';
+        cueMark = '<path d="M 112 43 Q 119 46 112 50" fill="none" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round"/>';
+      } else if (diagramType === 'velar') {
+        tonguePath = 'M 52 61 Q 70 35 91 35 Q 98 44 102 55';
+        cueMark = '<circle cx="78" cy="34" r="4" fill="#facc15" stroke="#0f172a" stroke-width="1.4"/>';
+      } else if (diagramType === 'glottal') {
+        tonguePath = 'M 54 61 Q 78 58 100 60';
+        cueMark = '<path d="M 44 61 Q 56 53 68 61 T 90 61" fill="none" stroke="#0284c7" stroke-width="2" stroke-dasharray="3 2"/>';
+      }
+
+      return (
+        '<svg viewBox="0 0 136 78" role="img" aria-label="Minh hoạ khẩu hình và vị trí lưỡi">' +
+          '<path d="M 38 11 C 66 6, 105 11, 109 34 L 117 44 L 109 50 L 109 62 C 109 69, 100 72, 91 70 L 82 67 L 82 73 L 40 73" fill="#f8fafc" stroke="#475569" stroke-width="2.2" stroke-linejoin="round"/>' +
+          '<path d="M 52 36 Q 76 28 102 34" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>' +
+          '<rect x="102" y="34" width="4.5" height="5" rx="1" fill="#ffffff" stroke="#64748b" stroke-width="1.4"/>' +
+          '<rect x="101" y="52" width="4.5" height="5" rx="1" fill="#ffffff" stroke="#64748b" stroke-width="1.4"/>' +
+          '<path d="' + tonguePath + '" fill="none" stroke="#ef4444" stroke-width="4.8" stroke-linecap="round"/>' +
+          lipMark +
+          cueMark +
+        '</svg>'
+      );
+    }
+
+    /* =========================================================================
+       5. SAFE SPEECH SYNTHESIS + WEB AUDIO FALLBACK (ZERO CRASHES)
+       ========================================================================= */
+    var availableVoices = [];
+
+    function refreshVoiceList() {
+      try {
+        if (window && 'speechSynthesis' in window && typeof window.speechSynthesis.getVoices === 'function') {
+          availableVoices = window.speechSynthesis.getVoices() || [];
+        }
+      } catch (e) {
+        availableVoices = [];
+      }
+    }
+
+    function playGentleFallbackBeep(isSlow) {
+      try {
+        var AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) {
+          showToast('Thiết bị chưa bật giọng đọc TTS. Hãy đọc theo gợi ý phiên âm trên thẻ.', 'info');
+          return;
+        }
+        var ctx = new AudioContextClass();
+        var osc = ctx.createOscillator();
+        var gain = ctx.createGain();
+        var duration = isSlow ? 0.28 : 0.16;
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(isSlow ? 392 : 523.25, ctx.currentTime);
+        gain.gain.setValueAtTime(0.06, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + duration);
+        setTimeout(function () {
+          try { ctx.close(); } catch (e) {}
+        }, 350);
+      } catch (e) {
+        // Silent fallback if Web Audio is blocked
+      }
+    }
+
+    function clearSpeakingHighlight() {
+      appState.activeSpeakId = null;
+      var nodes = document.querySelectorAll('[data-speak-key]');
+      for (var i = 0; i < nodes.length; i++) {
+        nodes[i].classList.remove('speaking-active');
+      }
+    }
+
+    function highlightSpeakingButton(speakKey) {
+      clearSpeakingHighlight();
+      appState.activeSpeakId = speakKey;
+      if (!speakKey) return;
+      var nodes = document.querySelectorAll('[data-speak-key="' + speakKey + '"]');
+      for (var i = 0; i < nodes.length; i++) {
+        nodes[i].classList.add('speaking-active');
+      }
+    }
+
+    function speakPronunciation(textToSpeak, rate, speakKey) {
+      var safeRate = (typeof rate === 'number' && rate > 0) ? rate : 1.0;
+      var isSlow = safeRate < 0.8;
+
+      try {
+        if (!window || !('speechSynthesis' in window) || typeof window.SpeechSynthesisUtterance !== 'function') {
+          playGentleFallbackBeep(isSlow);
+          showToast('WebView chưa có gói giọng đọc tiếng Anh — xem gợi ý cách đọc ngay bên dưới.');
+          return;
+        }
+
+        try {
+          window.speechSynthesis.cancel();
+        } catch (cancelErr) {}
+
+        var utter = new window.SpeechSynthesisUtterance(String(textToSpeak || ''));
+        utter.lang = appState.accent || 'en-US';
+        utter.rate = safeRate;
+        utter.pitch = 1.0;
+
+        if (!availableVoices || availableVoices.length === 0) {
+          refreshVoiceList();
+        }
+
+        if (availableVoices && availableVoices.length > 0) {
+          var targetLang = utter.lang.toLowerCase();
+          var baseLang = targetLang.split('-')[0];
+          var chosen = null;
+
+          for (var i = 0; i < availableVoices.length; i++) {
+            var vLang = String(availableVoices[i].lang || '').toLowerCase();
+            if (vLang === targetLang) {
+              chosen = availableVoices[i];
+              break;
+            }
+            if (!chosen && vLang.indexOf(baseLang) === 0) {
+              chosen = availableVoices[i];
+            }
+          }
+          if (chosen) {
+            utter.voice = chosen;
+          }
+        }
+
+        highlightSpeakingButton(speakKey);
+
+        var doneTimer = setTimeout(function () {
+          clearSpeakingHighlight();
+        }, isSlow ? 2600 : 1800);
+
+        utter.onend = function () {
+          clearTimeout(doneTimer);
+          clearSpeakingHighlight();
+        };
+
+        utter.onerror = function () {
+          clearTimeout(doneTimer);
+          clearSpeakingHighlight();
+          playGentleFallbackBeep(isSlow);
+        };
+
+        window.speechSynthesis.speak(utter);
+      } catch (err) {
+        clearSpeakingHighlight();
+        playGentleFallbackBeep(isSlow);
+      }
+    }
+
+    /* =========================================================================
+       6. FILTERING, ACCENT SWITCHING & RENDERING
+       ========================================================================= */
+    function changeAccent(newAccent) {
+      appState.accent = newAccent === 'en-GB' ? 'en-GB' : 'en-US';
+      safeSetStorage(STORAGE_ACCENT, appState.accent);
+
+      var usBtn = document.getElementById('btn-accent-us');
+      var ukBtn = document.getElementById('btn-accent-uk');
+      if (usBtn && ukBtn) {
+        usBtn.className = appState.accent === 'en-US' ? 'accent-btn active' : 'accent-btn';
+        ukBtn.className = appState.accent === 'en-GB' ? 'accent-btn active' : 'accent-btn';
+      }
+
+      renderLettersGrid();
+      if (appState.modalLetter) {
+        openLetterModalByChar(appState.modalLetter);
+      }
+      showToast('Đang dùng ' + (appState.accent === 'en-US' ? 'Giọng Mỹ (US)' : 'Giọng Anh (UK)'));
+    }
+
+    function selectFilter(filterName) {
+      appState.filter = filterName;
+      var chips = document.querySelectorAll('.filter-chip');
+      for (var i = 0; i < chips.length; i++) {
+        var chipFilter = chips[i].getAttribute('data-filter');
+        chips[i].className = chipFilter === filterName ? 'filter-chip active' : 'filter-chip';
+      }
+      renderLettersGrid();
+    }
+
+    function clearSearchInput() {
+      var input = document.getElementById('search-input');
+      if (input) input.value = '';
+      var clearBtn = document.getElementById('btn-clear-search');
+      if (clearBtn) clearBtn.style.display = 'none';
+      renderLettersGrid();
+    }
+
+    function resetSearchAndFilter() {
+      var input = document.getElementById('search-input');
+      if (input) input.value = '';
+      var clearBtn = document.getElementById('btn-clear-search');
+      if (clearBtn) clearBtn.style.display = 'none';
+      selectFilter('all');
+    }
+
+    function refreshProgressUI() {
+      var total = LETTERS_DATA.length;
+      var learnedCount = appState.learned.length;
+      var pct = Math.round((learnedCount / total) * 100);
+
+      var countEl = document.getElementById('header-learned-count');
+      var pctEl = document.getElementById('progress-percent-text');
+      var fillEl = document.getElementById('progress-bar-fill');
+
+      if (countEl) countEl.textContent = learnedCount + '/' + total;
+      if (pctEl) pctEl.textContent = pct + '% hoàn thành';
+      if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function renderQuickJumpStrip() {
+      var strip = document.getElementById('quick-jump-strip');
+      if (!strip) return;
+
+      var html = '';
+      for (var i = 0; i < LETTERS_DATA.length; i++) {
+        var item = LETTERS_DATA[i];
+        var learned = hasLearned(item.letter);
+        html +=
+          '<button type="button" class="jump-btn' + (learned ? ' learned' : '') + '" onclick="openLetterModalByChar(\'' + item.letter + '\')" title="Xem chữ ' + item.letter + '">' +
+            '<span>' + item.letter + '</span>' +
+            (learned ? '<span class="jump-dot"></span>' : '') +
+          '</button>';
+      }
+      strip.innerHTML = html;
+    }
+
+    function matchesCurrentFilterAndSearch(item, query) {
+      var f = appState.filter;
+      if (f === 'learned' && !hasLearned(item.letter)) return false;
+      if (f !== 'all' && f !== 'learned') {
+        var inGroup = false;
+        for (var g = 0; g < item.groups.length; g++) {
+          if (item.groups[g] === f) {
+            inGroup = true;
+            break;
+          }
+        }
+        if (!inGroup) return false;
+      }
+
+      if (!query) return true;
+
+      var combined = [
+        item.letter,
+        item.lower,
+        item.ipaUS,
+        item.ipaUK,
+        item.soundIpa,
+        item.vnGuide,
+        item.vnNote,
+        item.mouthTitle
+      ];
+
+      for (var e = 0; e < item.examples.length; e++) {
+        combined.push(item.examples[e].word);
+        combined.push(item.examples[e].ipa);
+        combined.push(item.examples[e].vnRead);
+        combined.push(item.examples[e].meaning);
+      }
+
+      var haystack = combined.join(' ').toLowerCase();
+      return haystack.indexOf(query) !== -1;
+    }
+
+    function renderLettersGrid() {
+      var grid = document.getElementById('letters-grid');
+      var noResults = document.getElementById('no-results-box');
+      var input = document.getElementById('search-input');
+      var clearBtn = document.getElementById('btn-clear-search');
+
+      if (!grid) return;
+
+      var rawQuery = input ? String(input.value || '') : '';
+      var trimmedQuery = rawQuery.replace(/^\s+|\s+$/g, '').toLowerCase();
+
+      if (clearBtn) {
+        clearBtn.style.display = trimmedQuery.length > 0 ? 'inline-block' : 'none';
+      }
+
+      var cardsHtml = '';
+      var matchedCount = 0;
+
+      for (var i = 0; i < LETTERS_DATA.length; i++) {
+        var item = LETTERS_DATA[i];
+        if (!matchesCurrentFilterAndSearch(item, trimmedQuery)) continue;
+        matchedCount++;
+
+        var isLearned = hasLearned(item.letter);
+        var activeIpa = appState.accent === 'en-GB' ? item.ipaUK : item.ipaUS;
+        var typeClass = item.isVowel ? 'vowel' : 'consonant';
+        var typeLabel = item.isVowel ? 'Nguyên âm' : 'Phụ âm';
+
+        var exHtml = '';
+        for (var exIdx = 0; exIdx < item.examples.length; exIdx++) {
+          var ex = item.examples[exIdx];
+          var exKey = 'ex-' + item.letter + '-' + exIdx;
+          exHtml +=
+            '<div class="example-row">' +
+              '<div>' +
+                '<span class="example-word">' + escapeHtml(ex.word) + '</span>' +
+                '<span class="example-ipa ipa-text">' + escapeHtml(ex.ipa) + '</span>' +
+                '<div class="example-meta">' + escapeHtml(ex.meaning) + ' • Đọc gần: <strong>' + escapeHtml(ex.vnRead) + '</strong></div>' +
+              '</div>' +
+              '<button type="button" class="mini-speak-btn" data-speak-key="' + exKey + '" onclick="speakPronunciation(\'' + escapeJsArg(ex.word) + '\', 1.0, \'' + exKey + '\')">🔊 Nghe</button>' +
+            '</div>';
+        }
+
+        var slowKey = 'letter-slow-' + item.letter;
+        var normKey = 'letter-norm-' + item.letter;
+
+        cardsHtml +=
+          '<article class="letter-card' + (isLearned ? ' learned' : '') + '">' +
+            '<div>' +
+              '<div class="card-top">' +
+                '<div class="letter-identity">' +
+                  '<div class="big-letter-box ' + typeClass + '">' +
+                    '<span>' + escapeHtml(item.letter) + '</span>' +
+                    '<span class="lower-char">' + escapeHtml(item.lower) + '</span>' +
+                  '</div>' +
+                  '<div>' +
+                    '<span style="font-size:11px; font-weight:800; color:#475569;">' + typeLabel + '</span>' +
+                    '<div class="ipa-line">Tên chữ: <span class="ipa-badge ipa-text">' + escapeHtml(activeIpa) + '</span></div>' +
+                    '<div class="ipa-line" style="font-size:12px; color:#64748b;">Âm: <span class="ipa-text" style="font-weight:700; color:#0f172a;">' + escapeHtml(item.soundIpa) + '</span></div>' +
+                  '</div>' +
+                '</div>' +
+                '<button type="button" class="learned-btn' + (isLearned ? ' is-learned' : '') + '" onclick="toggleLearnedLetter(\'' + item.letter + '\')">' +
+                  (isLearned ? '✓ Đã thuộc' : '+ Đã thuộc') +
+                '</button>' +
+              '</div>' +
+
+              '<div class="vn-approx-box">' +
+                '<div class="vn-approx-label">Gợi ý cách đọc gần tiếng Việt</div>' +
+                '<div class="vn-approx-value">' + escapeHtml(item.vnGuide) + '</div>' +
+                '<div class="vn-approx-note">' + escapeHtml(item.vnNote) + '</div>' +
+              '</div>' +
+
+              '<div class="svg-diagram-box">' +
+                buildMouthSVG(item.diagramType) +
+                '<div>' +
+                  '<div class="diagram-caption-title">' + escapeHtml(item.mouthTitle) + '</div>' +
+                  '<div class="diagram-caption-sub">' + escapeHtml(item.mouthSub) + '</div>' +
+                '</div>' +
+              '</div>' +
+
+              '<div class="examples-list">' + exHtml + '</div>' +
+            '</div>' +
+
+            '<div class="card-footer-actions">' +
+              '<div class="audio-btns">' +
+                '<button type="button" class="btn-slow" data-speak-key="' + slowKey + '" onclick="speakPronunciation(\'' + escapeJsArg(item.letter) + '\', 0.55, \'' + slowKey + '\')">🐢 Chậm 0.55x</button>' +
+                '<button type="button" class="btn-normal" data-speak-key="' + normKey + '" onclick="speakPronunciation(\'' + escapeJsArg(item.letter) + '\', 1.0, \'' + normKey + '\')">🔊 Chuẩn 1.0x</button>' +
+              '</div>' +
+              '<button type="button" class="btn-detail" onclick="openLetterModalByChar(\'' + item.letter + '\')">Chi tiết →</button>' +
+            '</div>' +
+          '</article>';
+      }
+
+      grid.innerHTML = cardsHtml;
+      if (noResults) {
+        noResults.style.display = matchedCount === 0 ? 'block' : 'none';
+      }
+    }
+
+    function renderQuickReferenceTable() {
+      var container = document.getElementById('quick-reference-grid');
+      if (!container) return;
+
+      var html = '';
+      for (var g = 0; g < QUICK_REFERENCE_GROUPS.length; g++) {
+        var grp = QUICK_REFERENCE_GROUPS[g];
+        var rowsHtml = '';
+        for (var r = 0; r < grp.rows.length; r++) {
+          var row = grp.rows[r];
+          var refKey = 'ref-' + g + '-' + r;
+          rowsHtml +=
+            '<div class="ref-item">' +
+              '<div>' +
+                '<span class="ipa-badge ipa-text">' + escapeHtml(row.ipa) + '</span> ' +
+                '<strong style="font-size:14px; color:#0f172a;">' + escapeHtml(row.word) + '</strong> ' +
+                '<span style="font-size:12px; color:#64748b;">(' + escapeHtml(row.meaning) + ')</span>' +
+                '<div style="font-size:12px; color:#334155; margin-top:2px;">Gợi ý đọc: <strong>' + escapeHtml(row.vn) + '</strong></div>' +
+              '</div>' +
+              '<button type="button" class="mini-speak-btn" data-speak-key="' + refKey + '" onclick="speakPronunciation(\'' + escapeJsArg(row.word) + '\', 0.9, \'' + refKey + '\')">🔊 Nghe</button>' +
+            '</div>';
+        }
+
+        html +=
+          '<div class="ref-group">' +
+            '<h3 class="ref-group-title">' + escapeHtml(grp.title) + '</h3>' +
+            '<p class="ref-group-desc">' + escapeHtml(grp.desc) + '</p>' +
+            rowsHtml +
+          '</div>';
+      }
+
+      container.innerHTML = html;
+    }
+
+    /* =========================================================================
+       7. DETAIL MODAL LOGIC
+       ========================================================================= */
+    function findLetterIndex(letter) {
+      for (var i = 0; i < LETTERS_DATA.length; i++) {
+        if (LETTERS_DATA[i].letter === letter) return i;
+      }
+      return -1;
+    }
+
+    function openLetterModalByChar(letter) {
+      var idx = findLetterIndex(letter);
+      if (idx === -1) return;
+
+      var item = LETTERS_DATA[idx];
+      appState.modalLetter = item.letter;
+
+      var backdrop = document.getElementById('detail-modal');
+      var titleEl = document.getElementById('modal-title');
+      var subEl = document.getElementById('modal-subtitle');
+      var bodyEl = document.getElementById('modal-body');
+
+      var activeIpa = appState.accent === 'en-GB' ? item.ipaUK : item.ipaUS;
+      var accentName = appState.accent === 'en-GB' ? 'Giọng Anh (UK)' : 'Giọng Mỹ (US)';
+
+      if (titleEl) titleEl.textContent = 'Chữ ' + item.letter + ' / ' + item.lower + ' (' + (item.isVowel ? 'Nguyên âm' : 'Phụ âm') + ')';
+      if (subEl) subEl.textContent = accentName + ': ' + activeIpa + '  •  Âm thường gặp: ' + item.soundIpa;
+
+      var stepsHtml = '';
+      for (var s = 0; s < item.mouthSteps.length; s++) {
+        stepsHtml += '<li style="margin-bottom:6px; font-size:13.5px; color:#1e293b;">' + escapeHtml(item.mouthSteps[s]) + '</li>';
+      }
+
+      var exCardsHtml = '';
+      for (var e = 0; e < item.examples.length; e++) {
+        var ex = item.examples[e];
+        var mExSlow = 'm-ex-slow-' + item.letter + '-' + e;
+        var mExNorm = 'm-ex-norm-' + item.letter + '-' + e;
+        exCardsHtml +=
+          '<div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:14px; padding:12px; margin-bottom:9px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">' +
+            '<div>' +
+              '<strong style="font-size:15px; color:#0f172a;">' + escapeHtml(ex.word) + '</strong> ' +
+              '<span class="ipa-text" style="font-size:13px; font-weight:700; color:#1d4ed8;">' + escapeHtml(ex.ipa) + '</span>' +
+              '<div style="font-size:12.5px; color:#475569; margin-top:2px;">Nghĩa: <strong>' + escapeHtml(ex.meaning) + '</strong> • Gần tiếng Việt: <strong>' + escapeHtml(ex.vnRead) + '</strong></div>' +
+            '</div>' +
+            '<div class="audio-btns">' +
+              '<button type="button" class="btn-slow" data-speak-key="' + mExSlow + '" onclick="speakPronunciation(\'' + escapeJsArg(ex.word) + '\', 0.55, \'' + mExSlow + '\')">🐢 0.55x</button>' +
+              '<button type="button" class="btn-normal" data-speak-key="' + mExNorm + '" onclick="speakPronunciation(\'' + escapeJsArg(ex.word) + '\', 1.0, \'' + mExNorm + '\')">🔊 Nghe</button>' +
+            '</div>' +
+          '</div>';
+      }
+
+      var mLetterSlow = 'm-let-slow-' + item.letter;
+      var mLetterNorm = 'm-let-norm-' + item.letter;
+
+      if (bodyEl) {
+        bodyEl.innerHTML =
+          '<div style="background:#0f172a; color:#ffffff; border-radius:16px; padding:14px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">' +
+            '<div>' +
+              '<div style="font-size:12px; color:#cbd5e1;">Luyện nghe chữ "' + escapeHtml(item.letter) + '" (' + accentName + ')</div>' +
+              '<div class="ipa-text" style="font-size:15px; font-weight:800; color:#38bdf8;">Phiên âm: ' + escapeHtml(activeIpa) + '</div>' +
+            '</div>' +
+            '<div class="audio-btns">' +
+              '<button type="button" class="btn-slow" data-speak-key="' + mLetterSlow + '" onclick="speakPronunciation(\'' + escapeJsArg(item.letter) + '\', 0.55, \'' + mLetterSlow + '\')">🐢 Đọc chậm (0.55x)</button>' +
+              '<button type="button" class="btn-normal" data-speak-key="' + mLetterNorm + '" onclick="speakPronunciation(\'' + escapeJsArg(item.letter) + '\', 1.0, \'' + mLetterNorm + '\')">🔊 Đọc chuẩn (1.0x)</button>' +
+            '</div>' +
+          '</div>' +
+
+          '<div class="svg-diagram-box" style="margin-top:14px; padding:12px;">' +
+            buildMouthSVG(item.diagramType) +
+            '<div>' +
+              '<div style="font-size:11px; font-weight:800; text-transform:uppercase; color:#1d4ed8;">Hướng dẫn từng bước đặt môi &amp; lưỡi</div>' +
+              '<ul style="margin:6px 0 0; padding-left:18px;">' + stepsHtml + '</ul>' +
+            '</div>' +
+          '</div>' +
+
+          '<div class="compare-box">' +
+            '<div class="compare-vn">' +
+              '<div style="font-size:11px; font-weight:800; color:#b45309; text-transform:uppercase;">Gợi ý gần tiếng Việt (Điểm tựa)</div>' +
+              '<div style="font-size:14px; font-weight:800; color:#78350f; margin-top:4px;">' + escapeHtml(item.vnGuide) + '</div>' +
+              '<div style="font-size:12px; color:#92400e; margin-top:4px;">' + escapeHtml(item.vnNote) + '</div>' +
+            '</div>' +
+            '<div class="compare-en">' +
+              '<div style="font-size:11px; font-weight:800; color:#1d4ed8; text-transform:uppercase;">Lưu ý chuẩn tiếng Anh</div>' +
+              '<div style="font-size:13px; color:#1e3a8a; margin-top:4px; line-height:1.5;">' + escapeHtml(item.vnVsEnDiff) + '</div>' +
+            '</div>' +
+          '</div>' +
+
+          '<div style="margin-top:16px;">' +
+            '<h4 style="margin:0 0 8px; font-size:14px; font-weight:800; color:#0f172a;">Ví dụ từ vựng quen thuộc cho người mới</h4>' +
+            exCardsHtml +
+          '</div>';
+        bodyEl.scrollTop = 0;
+      }
+
+      refreshModalLearnedButton();
+
+      var prevBtn = document.getElementById('modal-prev-btn');
+      var nextBtn = document.getElementById('modal-next-btn');
+      if (prevBtn) prevBtn.disabled = idx === 0;
+      if (nextBtn) nextBtn.disabled = idx === LETTERS_DATA.length - 1;
+
+      if (backdrop) {
+        backdrop.classList.add('open');
+      }
+    }
+
+    function refreshModalLearnedButton() {
+      var btn = document.getElementById('modal-learned-btn');
+      if (!btn || !appState.modalLetter) return;
+      var learned = hasLearned(appState.modalLetter);
+      btn.textContent = learned ? '✓ Đã thuộc chữ ' + appState.modalLetter : 'Đánh dấu đã thuộc chữ ' + appState.modalLetter;
+      btn.style.backgroundColor = learned ? '#059669' : '#2563eb';
+    }
+
+    function toggleCurrentModalLearned() {
+      if (appState.modalLetter) {
+        toggleLearnedLetter(appState.modalLetter);
+      }
+    }
+
+    function stepModalLetter(delta) {
+      if (!appState.modalLetter) return;
+      var idx = findLetterIndex(appState.modalLetter);
+      var targetIdx = idx + delta;
+      if (targetIdx >= 0 && targetIdx < LETTERS_DATA.length) {
+        openLetterModalByChar(LETTERS_DATA[targetIdx].letter);
+      }
+    }
+
+    function closeDetailModal() {
+      var backdrop = document.getElementById('detail-modal');
+      if (backdrop) {
+        backdrop.classList.remove('open');
+      }
+      appState.modalLetter = null;
+      clearSpeakingHighlight();
+      try {
+        if (window && 'speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+        }
+      } catch (e) {}
+    }
+
+    function handleModalBackdrop(ev) {
+      if (ev && ev.target && ev.target.id === 'detail-modal') {
+        closeDetailModal();
+      }
+    }
+
+    /* =========================================================================
+       8. STRING ESCAPING & TOAST NOTIFICATIONS
+       ========================================================================= */
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function escapeJsArg(str) {
+      return String(str || '')
+        .replace(/\\/g, '\\\\')
+        .replace(/'/g, "\\'");
+    }
+
+    function showToast(message) {
+      try {
+        var wrap = document.getElementById('toast-wrap');
+        if (!wrap) return;
+        var toast = document.createElement('div');
+        toast.className = 'toast-msg';
+        toast.textContent = String(message || '');
+        wrap.appendChild(toast);
+
+        setTimeout(function () {
+          try {
+            if (toast && toast.parentNode) {
+              toast.parentNode.removeChild(toast);
+            }
+          } catch (e) {}
+        }, 2300);
+      } catch (e) {}
+    }
+
+    /* =========================================================================
+       9. SAFE BOOTSTRAP (RUNS INSIDE TRY / CATCH)
+       ========================================================================= */
+    (function bootBeginnerAlphabetApp() {
+      try {
+        refreshVoiceList();
+        if (window && 'speechSynthesis' in window) {
+          window.speechSynthesis.onvoiceschanged = refreshVoiceList;
+        }
+
+        var usBtn = document.getElementById('btn-accent-us');
+        var ukBtn = document.getElementById('btn-accent-uk');
+        if (usBtn && ukBtn) {
+          usBtn.className = appState.accent === 'en-US' ? 'accent-btn active' : 'accent-btn';
+          ukBtn.className = appState.accent === 'en-GB' ? 'accent-btn active' : 'accent-btn';
+        }
+
+        refreshProgressUI();
+        renderQuickJumpStrip();
+        renderLettersGrid();
+        renderQuickReferenceTable();
+
+        document.addEventListener('keydown', function (ev) {
+          if (!ev) return;
+          if (ev.key === 'Escape' || ev.keyCode === 27) {
+            closeDetailModal();
+          } else if (appState.modalLetter) {
+            if (ev.key === 'ArrowLeft' || ev.keyCode === 37) stepModalLetter(-1);
+            if (ev.key === 'ArrowRight' || ev.keyCode === 39) stepModalLetter(1);
+          }
+        });
+      } catch (initErr) {
+        showToast('Ứng dụng đã khởi động ở chế độ an toàn.');
+      }
+    })();
+  </script>
+</body>
+</html>
